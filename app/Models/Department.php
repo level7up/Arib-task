@@ -12,7 +12,7 @@ final class Department extends Model
      *
      * @return HasMany
      */
-    public function user() : HasMany
+    public function users() : HasMany
     {
         return $this->hasMany(User::class);
     }

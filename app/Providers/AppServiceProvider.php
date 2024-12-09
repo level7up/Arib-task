@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
+use App\Repositories\DepartmentRepository;
+use App\Interfaces\DepartmentRepositoryInterface;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -12,7 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->bindRepositories();
     }
 
     /**
@@ -21,5 +23,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Model::unguard();
+    }
+
+    private function bindRepositories()
+    {
+        $this->app->bind(DepartmentRepositoryInterface::class, DepartmentRepository::class);
     }
 }
