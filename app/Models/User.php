@@ -60,6 +60,14 @@ class User extends Authenticatable
     }
     public function tasks()
     {
-        return $this->belongsToMany(Task::class);
+        return $this->belongsToMany(Task::class , 'user_task');
+    }
+
+
+    // * GETTERS
+
+    public function getNameAttribute()
+    {
+        return "{$this->first_name} {$this->last_name}";
     }
 }
