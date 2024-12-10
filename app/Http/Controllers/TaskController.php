@@ -4,26 +4,27 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Http\Requests\TaskRequest;
 use App\Http\Requests\EmployeeRequest;
-use App\Interfaces\EmployeeRepositoryInterface;
+use App\Interfaces\TaskRepositoryInterface;
 
-final class EmployeeController extends Controller
+final class TaskController extends Controller
 {
-	public function __construct(protected EmployeeRepositoryInterface $repository){}
+	public function __construct(protected TaskRepositoryInterface $repository){}
 
     public function index()
     {
-        $employees = $this->repository->all();
-        return view('employees.index', compact('employees'));
+        $tasks = $this->repository->all();
+        return view('tasks.index', compact('tasks'));
     }
     public function create()
     {
-        return view('employees.single');
+        return view('tasks.single');
     }
-    public function store(EmployeeRequest $request)
+    public function store(TaskRequest $request)
     {
         $this->repository->create($request->validated());
-        return redirect()->route('employee.index')->with('success', trans('Created Successfully'));
+        return redirect()->route('task.index')->with('success', trans('Created Successfully'));
     }
     public function edit($id)
     {

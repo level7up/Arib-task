@@ -13,7 +13,7 @@
 - [x] Login with email or phone 
 - [x] Password Complex
 - [x] Department Crud
-- [ ] Employee Crud
+- [x] Employee Crud
 - [ ] Task Crud
 - [ ] Employee Profile
 ****

@@ -2,12 +2,11 @@
 
 namespace App\Providers;
 
+use App\Interfaces;
+use App\Repositories;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
-use App\Repositories\EmployeeRepository;
-use App\Repositories\DepartmentRepository;
-use App\Interfaces\EmployeeRepositoryInterface;
-use App\Interfaces\DepartmentRepositoryInterface;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -29,7 +28,8 @@ class AppServiceProvider extends ServiceProvider
 
     private function bindRepositories()
     {
-        $this->app->bind(DepartmentRepositoryInterface::class, DepartmentRepository::class);
-        $this->app->bind(EmployeeRepositoryInterface::class, EmployeeRepository::class);
+        $this->app->bind(Interfaces\DepartmentRepositoryInterface::class, Repositories\DepartmentRepository::class);
+        $this->app->bind(Interfaces\EmployeeRepositoryInterface::class, Repositories\EmployeeRepository::class);
+        $this->app->bind(Interfaces\TaskRepositoryInterface::class, Repositories\TaskRepository::class);
     }
 }

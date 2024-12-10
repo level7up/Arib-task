@@ -24,7 +24,7 @@ final class DepartmentController extends Controller
     public function store(DepartmentRequest $request)
     {
         $this->repository->create($request->validated());
-        redirect()->route('department.index')->with('success', trans('Created Successfully'));
+        return redirect()->route('department.index')->with('success', trans('Created Successfully'));
     }
     public function edit($id)
     {
