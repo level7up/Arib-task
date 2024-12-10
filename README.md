@@ -12,7 +12,7 @@
 - [x] Seeders
 - [x] Login with email or phone 
 - [x] Password Complex
-- [ ] Department Crud
+- [x] Department Crud
 - [ ] Employee Crud
 - [ ] Task Crud
 - [ ] Employee Profile

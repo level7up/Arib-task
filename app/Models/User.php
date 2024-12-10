@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Models\Behaviors\HasMedia;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -11,7 +13,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, HasMedia;
 
     /**
      * The attributes that are mass assignable.
@@ -62,6 +64,14 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Task::class , 'user_task');
     }
+    public function manager()
+    {
+        return $this->belongsTo(User::class , 'manager_id');
+    }
+    public function staff()
+    {
+        return $this->hasMany(User::class , 'manager_id');
+    }
 
 
     // * GETTERS
@@ -69,5 +79,8 @@ class User extends Authenticatable
     public function getNameAttribute()
     {
         return "{$this->first_name} {$this->last_name}";
+    }
+    public function getAvatarUrlAttribute(){
+        return $this->single('avatar')?->file_url  ?? asset('assets/Default-avatar.jpg');
     }
 }
