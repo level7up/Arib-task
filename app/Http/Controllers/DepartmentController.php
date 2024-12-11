@@ -4,7 +4,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Department;
-use Illuminate\Http\Request;
 use App\Http\Requests\DepartmentRequest;
 use App\Interfaces\DepartmentRepositoryInterface;
 

@@ -14,6 +14,16 @@
 
 
 > [!IMPORTANT]
+> INSTALL:
+```php
+    php artisan migrate
+    php artisan db:seed
+```
+> login with user: admin@arib.test password: password
+
+
+
+> [!IMPORTANT]
 > DONE:
 > * Login with email or phone 
 > * Department Crud
@@ -21,3 +31,8 @@
 > * Task Crud
 > * Employees Tasks
 > * Task Change Status
+
+
+> [!IMPORTANT]
+> TEST CASES:
+> * 

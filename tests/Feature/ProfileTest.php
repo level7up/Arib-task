@@ -4,7 +4,6 @@ use App\Models\User;
 
 test('profile page is displayed', function () {
     $user = User::factory()->create();
-
     $response = $this
         ->actingAs($user)
         ->get('/profile');
@@ -18,7 +17,9 @@ test('profile information can be updated', function () {
     $response = $this
         ->actingAs($user)
         ->patch('/profile', [
-            'name' => 'Test User',
+            'first_name' => 'Test',
+            'last_name' => 'User',
+            'phone' => '+201002874505',
             'email' => 'test@example.com',
         ]);
 
@@ -39,7 +40,9 @@ test('email verification status is unchanged when the email address is unchanged
     $response = $this
         ->actingAs($user)
         ->patch('/profile', [
-            'name' => 'Test User',
+            'first_name' => 'Test',
+            'last_name' => 'User',
+            'phone' => '+201002874505',
             'email' => $user->email,
         ]);
 

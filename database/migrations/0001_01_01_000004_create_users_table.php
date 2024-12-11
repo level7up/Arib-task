@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');
             $table->string('first_name');
             $table->string('last_name');
-            $table->double('salary');
+            $table->double('salary')->default(0);
             $table->string('email')->unique();
             $table->string('phone')->unique();
             $table->timestamp('email_verified_at')->nullable();
