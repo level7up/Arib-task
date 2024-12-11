@@ -28,7 +28,10 @@ class TaskFactory extends Factory
                     return Role::inRandomOrder()->first()->id;
                 },
                 'department_id' => function () {
-                    return Department::inRandomOrder()->first()->id;
+                    return Department::create([
+                        'title'=>'title',
+                        'description'=>'description',
+                        ])->id;
                 },
             ])->id,
             'status'=> 1,

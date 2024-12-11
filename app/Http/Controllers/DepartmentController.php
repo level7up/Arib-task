@@ -18,6 +18,7 @@ final class DepartmentController extends Controller
     }
     public function create()
     {
+        abort_unless(auth()->user()->hasRole('Manager'),401);
         return view('departments.single');
     }
     public function store(DepartmentRequest $request)

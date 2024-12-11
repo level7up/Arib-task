@@ -36,7 +36,9 @@
                                     <th class="px-6 py-4">{{ $item->description }}</th>
                                     <th class="px-6 py-4">{{ $item->users->value('name') }}</th>
                                     <th>
-                                        @livewire('task-status', ['task' => $item])
+                                        {{-- @livewire('task-status', ['task' => $item]) --}}
+                                        <livewire:task-status :task="$item" />
+
                                     </th>
                                     <th class="px-6 py-4">
                                         <div class="flex">

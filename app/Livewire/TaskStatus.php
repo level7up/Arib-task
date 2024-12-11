@@ -9,7 +9,7 @@ use App\Enums\StatusEnum;
 class TaskStatus extends Component
 {
     public Task $task;
-    public StatusEnum $status;
+    public StatusEnum|null $status;
     public function mount(Task $task)
     {
         $this->task = $task;
@@ -18,11 +18,9 @@ class TaskStatus extends Component
 
     public function updateStatus()
     {
-        // dd($this->status->value);
         $this->task->update(['status' => $this->status]);
-
-
         session()->flash('message', 'Task status updated successfully!');
+        $this->dispatch('status-updated');
     }
 
     public function render()

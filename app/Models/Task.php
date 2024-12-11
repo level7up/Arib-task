@@ -9,6 +9,7 @@ class Task extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
     protected  $casts= [
         'status' => StatusEnum::class
     ];

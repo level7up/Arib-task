@@ -4,4 +4,9 @@
             <option value="{{ $case->value }}">{{ $case->name }}</option>
         @endforeach
     </select>
+    @if (session()->has('message'))
+        <div class="alert alert-success mt-2">
+            {{ session('message') }}
+        </div>
+    @endif
 </div>
