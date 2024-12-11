@@ -15,7 +15,7 @@
 
 > [!IMPORTANT]
 > INSTALL:
-```php
+```bash
     php artisan migrate
     php artisan db:seed
 ```
@@ -35,4 +35,6 @@
 
 > [!IMPORTANT]
 > TEST CASES:
-> * 
+```bash
+    vendor/bin/pest 
+```
